@@ -1,0 +1,8 @@
+{
+    "chat.tools.terminal.autoApprove": {
+        "/^python3 generate_dax\\.py && echo \"Size:\" && wc -c dax_measure\\.txt && echo \"Lines:\" && wc -l dax_measure\\.txt$/": {
+            "approve": true,
+            "matchCommandLine": true
+        }
+    }
+}
