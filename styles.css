@@ -1,0 +1,705 @@
+/* ===== MAF Navigation Landing Page ===== */
+/* Google Font - Poppins */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap');
+
+/* ===== Design Tokens ===== */
+:root {
+  --color-primary-brown: #3C2415;
+  --color-primary-dark: #2A1A0E;
+  --color-gold: #C5A55A;
+  --color-gold-light: #D4BA7A;
+  --color-gold-dark: #A8893E;
+  --color-cream: #F5F0E8;
+  --color-cream-light: #FAF7F2;
+  --color-white: #FFFFFF;
+  --color-body-text: #4A3728;
+  --color-text-light: #8B7A6B;
+  --color-border: rgba(60, 36, 21, 0.1);
+  --color-card-shadow: rgba(60, 36, 21, 0.08);
+  --color-overlay-collapsed: rgba(60, 36, 21, 0.55);
+  --color-overlay-active: rgba(245, 240, 232, 0.88);
+
+  --font-family: 'Poppins', sans-serif;
+  --transition-speed: 0.6s;
+  --transition-ease: cubic-bezier(0.4, 0, 0.2, 1);
+
+  --header-height: 70px;
+  --collapsed-width: 100px;
+}
+
+/* ===== Reset & Base ===== */
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html,
+body {
+  height: 100%;
+  overflow: hidden;
+  font-family: var(--font-family);
+  background: var(--color-cream);
+  color: var(--color-body-text);
+}
+
+/* ===== Header ===== */
+.header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: var(--header-height);
+  background: #31261d;
+  border-bottom: none;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 32px;
+  z-index: 100;
+  box-shadow: 0 2px 20px rgba(0, 0, 0, 0.15);
+}
+
+.header-left {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.header-logo {
+  height: 42px;
+  width: auto;
+}
+
+.header-title {
+  font-size: 22px;
+  font-weight: 400;
+  color: #DDD;
+  letter-spacing: 0.2px;
+  margin-left: 25px;
+}
+
+.header-title span {
+  font-weight: 300;
+  color: #999;
+}
+
+/* ===== Search ===== */
+.search-container {
+  position: relative;
+  width: 320px;
+}
+
+.search-input {
+  width: 100%;
+  padding: 10px 16px 10px 44px;
+  border: 1.5px solid rgba(255, 255, 255, 0.15);
+  border-radius: 12px;
+  background: rgba(255, 255, 255, 0.08);
+  font-family: var(--font-family);
+  font-size: 14px;
+  color: #EEE;
+  outline: none;
+  transition: all 0.3s ease;
+}
+
+.search-input::placeholder {
+  color: #999;
+}
+
+.search-input:focus {
+  border-color: var(--color-gold);
+  background: rgba(255, 255, 255, 0.12);
+  box-shadow: 0 0 0 3px rgba(197, 165, 90, 0.15);
+}
+
+.search-icon {
+  position: absolute;
+  left: 14px;
+  top: 50%;
+  transform: translateY(-50%);
+  color: #999;
+  font-size: 18px;
+  pointer-events: none;
+}
+
+.search-clear {
+  position: absolute;
+  right: 12px;
+  top: 50%;
+  transform: translateY(-50%);
+  background: none;
+  border: none;
+  color: #999;
+  cursor: pointer;
+  font-size: 16px;
+  display: none;
+  padding: 4px;
+  border-radius: 50%;
+  transition: all 0.2s;
+}
+
+.search-clear:hover {
+  background: rgba(255, 255, 255, 0.1);
+  color: #EEE;
+}
+
+.search-clear.visible {
+  display: flex;
+}
+
+/* ===== Accordion Container ===== */
+.accordion-container {
+  display: flex;
+  height: calc(100vh - var(--header-height));
+  margin-top: var(--header-height);
+  overflow: hidden;
+}
+
+/* ===== Accordion Section ===== */
+.accordion-section {
+  position: relative;
+  flex: 0 0 var(--collapsed-width);
+  height: 100%;
+  overflow: hidden;
+  cursor: pointer;
+  transition: flex var(--transition-speed) var(--transition-ease);
+}
+
+.accordion-section.active {
+  flex: 1 1 0;
+  cursor: default;
+}
+
+/* Background Image */
+.section-bg {
+  position: absolute;
+  inset: 0;
+  background-size: cover;
+  background-position: center;
+  filter: blur(8px);
+  transform: scale(1.05);
+  transition: transform 0.8s var(--transition-ease), filter 0.5s ease;
+}
+
+.accordion-section:hover:not(.active) .section-bg {
+  transform: scale(1.1);
+  filter: blur(2px);
+}
+
+.accordion-section.active .section-bg {
+  filter: blur(1px);
+}
+
+/* Overlays — unique brown shade per section */
+.section-overlay-collapsed {
+  position: absolute;
+  inset: 0;
+  background: rgba(60, 36, 21, 0.6);
+  transition: opacity var(--transition-speed) var(--transition-ease);
+  z-index: 1;
+}
+
+/* Unique overlay shades for each section */
+.accordion-section[data-section="performance"] .section-overlay-collapsed {
+  background: rgba(80, 40, 15, 0.65);
+}
+
+.accordion-section[data-section="financial"] .section-overlay-collapsed {
+  background: rgba(55, 35, 25, 0.65);
+}
+
+.accordion-section[data-section="human-capital"] .section-overlay-collapsed {
+  background: rgba(70, 45, 20, 0.65);
+}
+
+.accordion-section[data-section="market"] .section-overlay-collapsed {
+  background: rgba(50, 30, 20, 0.65);
+}
+
+.accordion-section[data-section="monthly"] .section-overlay-collapsed {
+  background: rgba(65, 40, 30, 0.65);
+}
+
+.accordion-section[data-section="realtime"] .section-overlay-collapsed {
+  background: rgba(45, 28, 18, 0.65);
+}
+
+.accordion-section.active .section-overlay-collapsed {
+  opacity: 0;
+  pointer-events: none;
+}
+
+.section-overlay-active {
+  position: absolute;
+  inset: 0;
+  background: var(--color-overlay-active);
+  opacity: 0;
+  transition: opacity var(--transition-speed) var(--transition-ease);
+  z-index: 1;
+}
+
+.accordion-section.active .section-overlay-active {
+  opacity: 1;
+}
+
+/* ===== Collapsed State ===== */
+.collapsed-content {
+  position: absolute;
+  inset: 0;
+  z-index: 2;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  transition: opacity 0.3s ease;
+}
+
+.accordion-section.active .collapsed-content {
+  opacity: 0;
+  pointer-events: none;
+}
+
+.collapsed-icon {
+  position: absolute;
+  bottom: 32px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 40px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(255, 255, 255, 0.15);
+  border-radius: 10px;
+  backdrop-filter: blur(4px);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.collapsed-icon svg {
+  width: 22px;
+  height: 22px;
+  fill: none;
+  stroke: var(--color-white);
+  stroke-width: 2;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+.collapsed-title {
+  writing-mode: vertical-rl;
+  text-orientation: mixed;
+  transform: rotate(180deg);
+  font-size: 20px;
+  font-weight: 400;
+  color: var(--color-white);
+  letter-spacing: 1.5px;
+  text-transform: capitalize;
+  white-space: nowrap;
+  text-shadow: 0 1px 4px rgba(0, 0, 0, 0.3);
+}
+
+/* Divider between collapsed sections */
+.accordion-section:not(:last-child)::after {
+  content: '';
+  position: absolute;
+  right: 0;
+  top: 10%;
+  bottom: 10%;
+  width: 1px;
+  background: rgba(255, 255, 255, 0.15);
+  z-index: 3;
+  transition: opacity var(--transition-speed) var(--transition-ease);
+}
+
+.accordion-section.active::after {
+  opacity: 0;
+}
+
+/* ===== Active / Expanded State ===== */
+.expanded-content {
+  position: absolute;
+  inset: 0;
+  z-index: 2;
+  padding: 40px 48px;
+  display: flex;
+  flex-direction: column;
+  opacity: 0;
+  transform: translateY(12px);
+  transition: opacity 0.5s ease 0.2s, transform 0.5s ease 0.2s;
+  overflow-y: auto;
+  pointer-events: none;
+}
+
+.accordion-section.active .expanded-content {
+  opacity: 1;
+  transform: translateY(0);
+  pointer-events: auto;
+}
+
+/* Custom scrollbar */
+.expanded-content::-webkit-scrollbar {
+  width: 6px;
+}
+
+.expanded-content::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.expanded-content::-webkit-scrollbar-thumb {
+  background: var(--color-gold-light);
+  border-radius: 3px;
+}
+
+/* Section Header */
+.section-header {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  margin-bottom: 8px;
+}
+
+.section-icon {
+  width: 48px;
+  height: 48px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(135deg, var(--color-gold), var(--color-gold-dark));
+  border-radius: 14px;
+  box-shadow: 0 4px 14px rgba(197, 165, 90, 0.3);
+}
+
+.section-icon svg {
+  width: 26px;
+  height: 26px;
+  fill: none;
+  stroke: var(--color-white);
+  stroke-width: 2;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+.section-title {
+  font-size: 26px;
+  font-weight: 700;
+  color: var(--color-primary-brown);
+  letter-spacing: -0.5px;
+}
+
+.section-subtitle {
+  font-size: 14px;
+  font-weight: 400;
+  color: var(--color-text-light);
+  margin-bottom: 28px;
+}
+
+.section-divider {
+  width: 60px;
+  height: 3px;
+  background: linear-gradient(90deg, var(--color-gold), transparent);
+  border-radius: 2px;
+  margin-bottom: 28px;
+}
+
+/* ===== Cards Grid ===== */
+.cards-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+  gap: 14px;
+  align-content: start;
+}
+
+/* ===== Dashboard Card ===== */
+.dashboard-card {
+  position: relative;
+  background: var(--color-white);
+  border: 1px solid var(--color-border);
+  border-radius: 14px;
+  padding: 20px 20px 20px 24px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  text-decoration: none;
+  color: var(--color-body-text);
+  overflow: hidden;
+}
+
+.dashboard-card::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  width: 4px;
+  background: var(--color-gold);
+  border-radius: 0 2px 2px 0;
+  transform: scaleY(0);
+  transition: transform 0.3s var(--transition-ease);
+}
+
+.dashboard-card:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 8px 30px var(--color-card-shadow);
+  border-color: var(--color-gold-light);
+}
+
+.dashboard-card:hover::before {
+  transform: scaleY(1);
+}
+
+.card-icon {
+  width: 38px;
+  height: 38px;
+  min-width: 38px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--color-cream);
+  border-radius: 10px;
+  transition: all 0.3s ease;
+}
+
+.dashboard-card:hover .card-icon {
+  background: linear-gradient(135deg, var(--color-gold), var(--color-gold-dark));
+}
+
+.card-icon svg {
+  width: 20px;
+  height: 20px;
+  fill: none;
+  stroke: var(--color-gold-dark);
+  stroke-width: 2;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  transition: stroke 0.3s ease;
+}
+
+.dashboard-card:hover .card-icon svg {
+  stroke: var(--color-white);
+}
+
+.card-title {
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 1.3;
+  color: var(--color-body-text);
+}
+
+.card-arrow {
+  margin-left: auto;
+  opacity: 0;
+  transform: translateX(-6px);
+  transition: all 0.3s ease;
+  min-width: 24px;
+  height: 13px;
+  display: flex;
+  align-items: center;
+}
+
+.card-arrow img {
+  width: 24px;
+  height: auto;
+}
+
+.dashboard-card:hover .card-arrow {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+/* ===== Card hidden by search ===== */
+.dashboard-card.hidden {
+  display: none;
+}
+
+/* ===== Card highlight from search ===== */
+.dashboard-card.search-match {
+  border-color: var(--color-gold);
+  box-shadow: 0 0 0 2px rgba(197, 165, 90, 0.2);
+}
+
+/* ===== Section with no matches ===== */
+.accordion-section.no-match .collapsed-content {
+  opacity: 0.35;
+}
+
+/* ===== Search Results Count ===== */
+.search-results-count {
+  position: fixed;
+  bottom: 24px;
+  left: 50%;
+  transform: translateX(-50%) translateY(60px);
+  background: var(--color-primary-brown);
+  color: var(--color-white);
+  padding: 10px 24px;
+  border-radius: 50px;
+  font-size: 13px;
+  font-weight: 500;
+  z-index: 200;
+  opacity: 0;
+  transition: all 0.4s var(--transition-ease);
+  pointer-events: none;
+  box-shadow: 0 8px 30px rgba(60, 36, 21, 0.2);
+}
+
+.search-results-count.visible {
+  opacity: 1;
+  transform: translateX(-50%) translateY(0);
+}
+
+/* ===== Hover strip indicator ===== */
+.accordion-section:not(.active):hover {
+  flex-basis: 140px;
+}
+
+.accordion-section:not(.active):hover .collapsed-icon {
+  background: rgba(255, 255, 255, 0.25);
+}
+
+/* ===== Responsive ===== */
+@media (max-width: 768px) {
+  .header {
+    padding: 0 16px;
+  }
+
+  .header-title {
+    font-size: 14px;
+  }
+
+  .header-title span {
+    display: none;
+  }
+
+  .search-container {
+    width: 200px;
+  }
+
+  .accordion-container {
+    flex-direction: column;
+  }
+
+  .accordion-section {
+    flex: 0 0 60px;
+  }
+
+  .accordion-section.active {
+    flex: 1 1 0;
+  }
+
+  .accordion-section:not(.active):hover {
+    flex-basis: 70px;
+  }
+
+  .collapsed-content {
+    flex-direction: row;
+    gap: 12px;
+  }
+
+  .collapsed-title {
+    writing-mode: horizontal-tb;
+    transform: none;
+    font-size: 12px;
+  }
+
+  .accordion-section:not(:last-child)::after {
+    right: 10%;
+    left: 10%;
+    top: auto;
+    bottom: 0;
+    width: auto;
+    height: 1px;
+  }
+
+  .expanded-content {
+    padding: 24px;
+  }
+
+  .cards-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .section-title {
+    font-size: 20px;
+  }
+}
+
+/* ===== Animations ===== */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(16px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.accordion-section.active .dashboard-card {
+  animation: fadeInUp 0.4s ease forwards;
+}
+
+.accordion-section.active .dashboard-card:nth-child(1) {
+  animation-delay: 0.05s;
+}
+
+.accordion-section.active .dashboard-card:nth-child(2) {
+  animation-delay: 0.08s;
+}
+
+.accordion-section.active .dashboard-card:nth-child(3) {
+  animation-delay: 0.11s;
+}
+
+.accordion-section.active .dashboard-card:nth-child(4) {
+  animation-delay: 0.14s;
+}
+
+.accordion-section.active .dashboard-card:nth-child(5) {
+  animation-delay: 0.17s;
+}
+
+.accordion-section.active .dashboard-card:nth-child(6) {
+  animation-delay: 0.20s;
+}
+
+.accordion-section.active .dashboard-card:nth-child(7) {
+  animation-delay: 0.23s;
+}
+
+.accordion-section.active .dashboard-card:nth-child(8) {
+  animation-delay: 0.26s;
+}
+
+.accordion-section.active .dashboard-card:nth-child(9) {
+  animation-delay: 0.29s;
+}
+
+.accordion-section.active .dashboard-card:nth-child(10) {
+  animation-delay: 0.32s;
+}
+
+.accordion-section.active .dashboard-card:nth-child(11) {
+  animation-delay: 0.35s;
+}
+
+.accordion-section.active .dashboard-card:nth-child(12) {
+  animation-delay: 0.38s;
+}
+
+.accordion-section.active .dashboard-card:nth-child(13) {
+  animation-delay: 0.41s;
+}
+
+.accordion-section.active .dashboard-card:nth-child(14) {
+  animation-delay: 0.44s;
+}
+
+.accordion-section.active .dashboard-card:nth-child(15) {
+  animation-delay: 0.47s;
+}

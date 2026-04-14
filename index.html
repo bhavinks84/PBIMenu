@@ -1,0 +1,508 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>MAFR Countries Performance Analysis</title>
+  <meta name="description" content="MAFR Countries Performance Analysis - Dashboard Navigation Hub">
+  <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+
+  <!-- ===== Header ===== -->
+  <header class="header">
+    <div class="header-left">
+      <img src="img/MAF-logo.png" alt="MAF Logo" class="header-logo">
+      <h1 class="header-title">MAFR Countries Performance Analysis</h1>
+    </div>
+    <div class="search-container">
+      <svg class="search-icon" viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor"
+        stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+        <circle cx="11" cy="11" r="8" />
+        <line x1="21" y1="21" x2="16.65" y2="16.65" />
+      </svg>
+      <input type="text" id="searchInput" class="search-input" placeholder="Search dashboards... (⌘K or Ctrl+K)"
+        autocomplete="off">
+      <button id="searchClear" class="search-clear" aria-label="Clear search">✕</button>
+    </div>
+  </header>
+
+  <!-- ===== Accordion ===== -->
+  <main class="accordion-container">
+
+    <!-- ── Section 1: Performance Summary ── -->
+    <div class="accordion-section active" data-section="performance">
+      <div class="section-bg" style="background-image: url('img/bg_performance.png')"></div>
+      <div class="section-overlay-collapsed"></div>
+      <div class="section-overlay-active"></div>
+
+      <div class="collapsed-content">
+        <div class="collapsed-icon">
+          <svg viewBox="0 0 24 24">
+            <path d="M3 3v18h18M9 17V9m4 8v-5m4 5V6" />
+          </svg>
+        </div>
+        <span class="collapsed-title">Performance Summary</span>
+      </div>
+
+      <div class="expanded-content">
+        <div class="section-header">
+          <div class="section-icon">
+            <svg viewBox="0 0 24 24">
+              <path d="M3 3v18h18M9 17V9m4 8v-5m4 5V6" />
+            </svg>
+          </div>
+          <h2 class="section-title">Performance Summary</h2>
+        </div>
+        <p class="section-subtitle">Key metrics, sales, and store performance dashboards</p>
+        <div class="section-divider"></div>
+        <div class="cards-grid">
+          <a href="#" class="dashboard-card">
+            <div class="card-icon"><svg viewBox="0 0 24 24">
+                <path
+                  d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8l-6-6zM14 2v6h6M16 13H8m8 4H8m2-8H8" />
+              </svg></div><span class="card-title">Executive Summary</span><span class="card-arrow"><img src="img/arrow.svg"
+                alt=""></span>
+          </a>
+          <a href="#" class="dashboard-card">
+            <div class="card-icon"><svg viewBox="0 0 24 24">
+                <path d="M12 20V10m6 10V4M6 20v-4" />
+              </svg></div><span class="card-title">Key Figures</span><span class="card-arrow"><img src="img/arrow.svg"
+                alt=""></span>
+          </a>
+          <a href="#" class="dashboard-card">
+            <div class="card-icon"><svg viewBox="0 0 24 24">
+                <path d="M22 12h-4l-3 9L9 3l-3 9H2" />
+              </svg></div><span class="card-title">Sales Performance</span><span class="card-arrow"><img src="img/arrow.svg"
+                alt=""></span>
+          </a>
+          <a href="#" class="dashboard-card">
+            <div class="card-icon"><svg viewBox="0 0 24 24">
+                <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z" />
+                <polyline points="9 22 9 12 15 12 15 22" />
+              </svg></div><span class="card-title">Top Stores Performance</span><span class="card-arrow"><img
+                src="img/arrow.svg" alt=""></span>
+          </a>
+          <a href="#" class="dashboard-card">
+            <div class="card-icon"><svg viewBox="0 0 24 24">
+                <path
+                  d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2M23 21v-2a4 4 0 0 0-3-3.87M16 3.13a4 4 0 0 1 0 7.75M9 7a4 4 0 1 0 0 8 4 4 0 0 0 0-8z" />
+              </svg></div><span class="card-title">Performance Waterfall</span><span class="card-arrow"><img
+                src="img/arrow.svg" alt=""></span>
+          </a>
+          <a href="#" class="dashboard-card">
+            <div class="card-icon"><svg viewBox="0 0 24 24">
+                <path d="M12 1v22M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6" />
+              </svg></div><span class="card-title">FX Impact on Sales</span><span class="card-arrow"><img
+                src="img/arrow.svg" alt=""></span>
+          </a>
+          <a href="#" class="dashboard-card">
+            <div class="card-icon"><svg viewBox="0 0 24 24">
+                <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z" />
+                <polyline points="9 22 9 12 15 12 15 22" />
+              </svg></div><span class="card-title">Store ID</span><span class="card-arrow"><img src="img/arrow.svg"
+                alt=""></span>
+          </a>
+          <a href="#" class="dashboard-card">
+            <div class="card-icon"><svg viewBox="0 0 24 24">
+                <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-4 0v7h-4v-7a6 6 0 0 1 6-6zM2 9h4v12H2z" />
+              </svg></div><span class="card-title">Commercial Investments</span><span class="card-arrow"><img
+                src="img/arrow.svg" alt=""></span>
+          </a>
+          <a href="#" class="dashboard-card">
+            <div class="card-icon"><svg viewBox="0 0 24 24">
+                <path d="M22 12h-4l-3 9L9 3l-3 9H2" />
+              </svg></div><span class="card-title">TCM Evolution</span><span class="card-arrow"><img src="img/arrow.svg"
+                alt=""></span>
+          </a>
+          <a href="#" class="dashboard-card">
+            <div class="card-icon"><svg viewBox="0 0 24 24">
+                <path d="M18 20V10m-6 10V4M6 20v-6" />
+              </svg></div><span class="card-title">Profitability Metrics</span><span class="card-arrow"><img
+                src="img/arrow.svg" alt=""></span>
+          </a>
+          <a href="#" class="dashboard-card">
+            <div class="card-icon"><svg viewBox="0 0 24 24">
+                <path
+                  d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0zM12 9v4m0 4h.01" />
+              </svg></div><span class="card-title">Loss Making Stores</span><span class="card-arrow"><img
+                src="img/arrow.svg" alt=""></span>
+          </a>
+          <a href="#" class="dashboard-card">
+            <div class="card-icon"><svg viewBox="0 0 24 24">
+                <path d="M12 22c5.523 0 10-4.477 10-10S17.523 2 12 2 2 6.477 2 12s4.477 10 10 10z" />
+                <path
+                  d="M14.31 8l5.74 9.94M9.69 8h11.48M7.38 12l5.74-9.94M9.69 16L3.95 6.06M14.31 16H2.83M16.62 12l-5.74 9.94" />
+              </svg></div><span class="card-title">Fresh Food Analysis</span><span class="card-arrow"><img
+                src="img/arrow.svg" alt=""></span>
+          </a>
+          <a href="#" class="dashboard-card">
+            <div class="card-icon"><svg viewBox="0 0 24 24">
+                <path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2zM22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z" />
+              </svg></div><span class="card-title">Digital Channel KPIs</span><span class="card-arrow"><img
+                src="img/arrow.svg" alt=""></span>
+          </a>
+        </div>
+      </div>
+    </div>
+
+    <!-- ── Section 2: Financial Statements ── -->
+    <div class="accordion-section" data-section="financial">
+      <div class="section-bg" style="background-image: url('img/bg_financial.png')"></div>
+      <div class="section-overlay-collapsed"></div>
+      <div class="section-overlay-active"></div>
+
+      <div class="collapsed-content">
+        <div class="collapsed-icon">
+          <svg viewBox="0 0 24 24">
+            <path d="M12 1v22M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6" />
+          </svg>
+        </div>
+        <span class="collapsed-title">Financial Statements</span>
+      </div>
+
+      <div class="expanded-content">
+        <div class="section-header">
+          <div class="section-icon">
+            <svg viewBox="0 0 24 24">
+              <path d="M12 1v22M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6" />
+            </svg>
+          </div>
+          <h2 class="section-title">Financial Statements</h2>
+        </div>
+        <p class="section-subtitle">P&L, balance sheet, and financial reporting dashboards</p>
+        <div class="section-divider"></div>
+        <div class="cards-grid">
+          <a href="#" class="dashboard-card">
+            <div class="card-icon"><svg viewBox="0 0 24 24">
+                <path
+                  d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8l-6-6zM14 2v6h6M16 13H8m8 4H8m2-8H8" />
+              </svg></div><span class="card-title">P&L Statement</span><span class="card-arrow"><img src="img/arrow.svg"
+                alt=""></span>
+          </a>
+          <a href="#" class="dashboard-card">
+            <div class="card-icon"><svg viewBox="0 0 24 24">
+                <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z" />
+                <polyline points="22,6 12,13 2,6" />
+              </svg></div><span class="card-title">Balance Sheet</span><span class="card-arrow"><img src="img/arrow.svg"
+                alt=""></span>
+          </a>
+          <a href="#" class="dashboard-card">
+            <div class="card-icon"><svg viewBox="0 0 24 24">
+                <path d="M22 12h-4l-3 9L9 3l-3 9H2" />
+              </svg></div><span class="card-title">Cash Flow</span><span class="card-arrow"><img src="img/arrow.svg"
+                alt=""></span>
+          </a>
+          <a href="#" class="dashboard-card">
+            <div class="card-icon"><svg viewBox="0 0 24 24">
+                <path d="M12 20V10m6 10V4M6 20v-4" />
+              </svg></div><span class="card-title">Budget vs Actual</span><span class="card-arrow"><img src="img/arrow.svg"
+                alt=""></span>
+          </a>
+        </div>
+      </div>
+    </div>
+
+    <!-- ── Section 3: Human Capital ── -->
+    <div class="accordion-section" data-section="human-capital">
+      <div class="section-bg" style="background-image: url('img/bg_human_capital.png')"></div>
+      <div class="section-overlay-collapsed"></div>
+      <div class="section-overlay-active"></div>
+
+      <div class="collapsed-content">
+        <div class="collapsed-icon">
+          <svg viewBox="0 0 24 24">
+            <path
+              d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2M9 7a4 4 0 1 0 0 8 4 4 0 0 0 0-8zM23 21v-2a4 4 0 0 0-3-3.87M16 3.13a4 4 0 0 1 0 7.75" />
+          </svg>
+        </div>
+        <span class="collapsed-title">Human Capital</span>
+      </div>
+
+      <div class="expanded-content">
+        <div class="section-header">
+          <div class="section-icon">
+            <svg viewBox="0 0 24 24">
+              <path
+                d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2M9 7a4 4 0 1 0 0 8 4 4 0 0 0 0-8zM23 21v-2a4 4 0 0 0-3-3.87M16 3.13a4 4 0 0 1 0 7.75" />
+            </svg>
+          </div>
+          <h2 class="section-title">Human Capital</h2>
+        </div>
+        <p class="section-subtitle">Workforce analytics, attrition, talent, and training dashboards</p>
+        <div class="section-divider"></div>
+        <div class="cards-grid">
+          <a href="#" class="dashboard-card">
+            <div class="card-icon"><svg viewBox="0 0 24 24">
+                <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2M12 3a4 4 0 1 0 0 8 4 4 0 0 0 0-8z" />
+              </svg></div><span class="card-title">Headcount Analysis</span><span class="card-arrow"><img
+                src="img/arrow.svg" alt=""></span>
+          </a>
+          <a href="#" class="dashboard-card">
+            <div class="card-icon"><svg viewBox="0 0 24 24">
+                <path d="M16 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2M8.56 3.44a5 5 0 0 1 0 7.12M18 8A6 6 0 0 1 6 8" />
+              </svg></div><span class="card-title">Attrition Dashboard</span><span class="card-arrow"><img
+                src="img/arrow.svg" alt=""></span>
+          </a>
+          <a href="#" class="dashboard-card">
+            <div class="card-icon"><svg viewBox="0 0 24 24">
+                <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14" />
+                <polyline points="22 4 12 14.01 9 11.01" />
+              </svg></div><span class="card-title">Talent Pipeline</span><span class="card-arrow"><img src="img/arrow.svg"
+                alt=""></span>
+          </a>
+          <a href="#" class="dashboard-card">
+            <div class="card-icon"><svg viewBox="0 0 24 24">
+                <path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2zM22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z" />
+              </svg></div><span class="card-title">Training Metrics</span><span class="card-arrow"><img src="img/arrow.svg"
+                alt=""></span>
+          </a>
+        </div>
+      </div>
+    </div>
+
+    <!-- ── Section 4: Market & Customer Intelligence ── -->
+    <div class="accordion-section" data-section="market">
+      <div class="section-bg" style="background-image: url('img/bg_market.png')"></div>
+      <div class="section-overlay-collapsed"></div>
+      <div class="section-overlay-active"></div>
+
+      <div class="collapsed-content">
+        <div class="collapsed-icon">
+          <svg viewBox="0 0 24 24">
+            <path
+              d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z" />
+          </svg>
+        </div>
+        <span class="collapsed-title">Market & Customer Intelligence</span>
+      </div>
+
+      <div class="expanded-content">
+        <div class="section-header">
+          <div class="section-icon">
+            <svg viewBox="0 0 24 24">
+              <path
+                d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z" />
+            </svg>
+          </div>
+          <h2 class="section-title">Market & Customer Intelligence</h2>
+        </div>
+        <p class="section-subtitle">NPS, market share, customer insights, and marketing mix dashboards</p>
+        <div class="section-divider"></div>
+        <div class="cards-grid">
+          <a href="#" class="dashboard-card">
+            <div class="card-icon"><svg viewBox="0 0 24 24">
+                <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14" />
+                <polyline points="22 4 12 14.01 9 11.01" />
+              </svg></div><span class="card-title">NPS Performance</span><span class="card-arrow"><img src="img/arrow.svg"
+                alt=""></span>
+          </a>
+          <a href="#" class="dashboard-card">
+            <div class="card-icon"><svg viewBox="0 0 24 24">
+                <path d="M18 20V10m-6 10V4M6 20v-6" />
+              </svg></div><span class="card-title">Nielsen Market Share</span><span class="card-arrow"><img
+                src="img/arrow.svg" alt=""></span>
+          </a>
+          <a href="#" class="dashboard-card">
+            <div class="card-icon"><svg viewBox="0 0 24 24">
+                <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z" />
+                <circle cx="12" cy="10" r="3" />
+              </svg></div><span class="card-title">Dubai Zones Profiling</span><span class="card-arrow"><img
+                src="img/arrow.svg" alt=""></span>
+          </a>
+          <a href="#" class="dashboard-card">
+            <div class="card-icon"><svg viewBox="0 0 24 24">
+                <path d="M12 20V10m6 10V4M6 20v-4" />
+              </svg></div><span class="card-title">GFK Market Share</span><span class="card-arrow"><img src="img/arrow.svg"
+                alt=""></span>
+          </a>
+          <a href="#" class="dashboard-card">
+            <div class="card-icon"><svg viewBox="0 0 24 24">
+                <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2M12 3a4 4 0 1 0 0 8 4 4 0 0 0 0-8z" />
+              </svg></div><span class="card-title">Customers Insights</span><span class="card-arrow"><img
+                src="img/arrow.svg" alt=""></span>
+          </a>
+          <a href="#" class="dashboard-card">
+            <div class="card-icon"><svg viewBox="0 0 24 24">
+                <path d="M22 12h-4l-3 9L9 3l-3 9H2" />
+              </svg></div><span class="card-title">MMM CG & FFD</span><span class="card-arrow"><img src="img/arrow.svg"
+                alt=""></span>
+          </a>
+          <a href="#" class="dashboard-card">
+            <div class="card-icon"><svg viewBox="0 0 24 24">
+                <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14" />
+                <polyline points="22 4 12 14.01 9 11.01" />
+              </svg></div><span class="card-title">Top Down NPS</span><span class="card-arrow"><img src="img/arrow.svg"
+                alt=""></span>
+          </a>
+          <a href="#" class="dashboard-card">
+            <div class="card-icon"><svg viewBox="0 0 24 24">
+                <path d="M12 1v22M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6" />
+              </svg></div><span class="card-title">MMM Total Sales</span><span class="card-arrow"><img src="img/arrow.svg"
+                alt=""></span>
+          </a>
+        </div>
+      </div>
+    </div>
+
+    <!-- ── Section 5: Monthly Analysis ── -->
+    <div class="accordion-section" data-section="monthly">
+      <div class="section-bg" style="background-image: url('img/bg_monthly.png')"></div>
+      <div class="section-overlay-collapsed"></div>
+      <div class="section-overlay-active"></div>
+
+      <div class="collapsed-content">
+        <div class="collapsed-icon">
+          <svg viewBox="0 0 24 24">
+            <path d="M19 4H5a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6a2 2 0 0 0-2-2zM16 2v4M8 2v4M3 10h18" />
+          </svg>
+        </div>
+        <span class="collapsed-title">Monthly Analysis</span>
+      </div>
+
+      <div class="expanded-content">
+        <div class="section-header">
+          <div class="section-icon">
+            <svg viewBox="0 0 24 24">
+              <path d="M19 4H5a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6a2 2 0 0 0-2-2zM16 2v4M8 2v4M3 10h18" />
+            </svg>
+          </div>
+          <h2 class="section-title">Monthly Analysis</h2>
+        </div>
+        <p class="section-subtitle">Monthly trends, year-over-year, and regional performance dashboards</p>
+        <div class="section-divider"></div>
+        <div class="cards-grid">
+          <a href="#" class="dashboard-card">
+            <div class="card-icon"><svg viewBox="0 0 24 24">
+                <path d="M22 12h-4l-3 9L9 3l-3 9H2" />
+              </svg></div><span class="card-title">Monthly Trends</span><span class="card-arrow"><img src="img/arrow.svg"
+                alt=""></span>
+          </a>
+          <a href="#" class="dashboard-card">
+            <div class="card-icon"><svg viewBox="0 0 24 24">
+                <path d="M18 20V10m-6 10V4M6 20v-6" />
+              </svg></div><span class="card-title">YoY Comparison</span><span class="card-arrow"><img src="img/arrow.svg"
+                alt=""></span>
+          </a>
+          <a href="#" class="dashboard-card">
+            <div class="card-icon"><svg viewBox="0 0 24 24">
+                <path d="M12 22c5.523 0 10-4.477 10-10S17.523 2 12 2 2 6.477 2 12s4.477 10 10 10z" />
+                <polyline points="12 6 12 12 16 14" />
+              </svg></div><span class="card-title">Seasonal Patterns</span><span class="card-arrow"><img src="img/arrow.svg"
+                alt=""></span>
+          </a>
+          <a href="#" class="dashboard-card">
+            <div class="card-icon"><svg viewBox="0 0 24 24">
+                <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z" />
+                <circle cx="12" cy="10" r="3" />
+              </svg></div><span class="card-title">Regional Breakdown</span><span class="card-arrow"><img
+                src="img/arrow.svg" alt=""></span>
+          </a>
+        </div>
+      </div>
+    </div>
+
+    <!-- ── Section 6: Daily & Realtime Analysis ── -->
+    <div class="accordion-section" data-section="realtime">
+      <div class="section-bg" style="background-image: url('img/bg_realtime.png')"></div>
+      <div class="section-overlay-collapsed"></div>
+      <div class="section-overlay-active"></div>
+
+      <div class="collapsed-content">
+        <div class="collapsed-icon">
+          <svg viewBox="0 0 24 24">
+            <path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z" />
+          </svg>
+        </div>
+        <span class="collapsed-title">Daily & Realtime Analysis</span>
+      </div>
+
+      <div class="expanded-content">
+        <div class="section-header">
+          <div class="section-icon">
+            <svg viewBox="0 0 24 24">
+              <path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z" />
+            </svg>
+          </div>
+          <h2 class="section-title">Daily & Realtime Analysis</h2>
+        </div>
+        <p class="section-subtitle">Live sales, stock, operations, and e-commerce monitoring dashboards</p>
+        <div class="section-divider"></div>
+        <div class="cards-grid">
+          <a href="#" class="dashboard-card">
+            <div class="card-icon"><svg viewBox="0 0 24 24">
+                <path d="M12 22c5.523 0 10-4.477 10-10S17.523 2 12 2 2 6.477 2 12s4.477 10 10 10z" />
+                <polyline points="12 6 12 12 16 14" />
+              </svg></div><span class="card-title">Real Time Total Sales</span><span class="card-arrow"><img
+                src="img/arrow.svg" alt=""></span>
+          </a>
+          <a href="#" class="dashboard-card">
+            <div class="card-icon"><svg viewBox="0 0 24 24">
+                <path
+                  d="M19 4H5a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6a2 2 0 0 0-2-2zM16 2v4M8 2v4M3 10h18" />
+              </svg></div><span class="card-title">Total Sales As of Yesterday</span><span class="card-arrow"><img
+                src="img/arrow.svg" alt=""></span>
+          </a>
+          <a href="#" class="dashboard-card">
+            <div class="card-icon"><svg viewBox="0 0 24 24">
+                <path d="M20.59 13.41l-7.17 7.17a2 2 0 0 1-2.83 0L2 12V2h10l8.59 8.59a2 2 0 0 1 0 2.82z" />
+                <line x1="7" y1="7" x2="7.01" y2="7" />
+              </svg></div><span class="card-title">Real Time Promo Sales</span><span class="card-arrow"><img
+                src="img/arrow.svg" alt=""></span>
+          </a>
+          <a href="#" class="dashboard-card">
+            <div class="card-icon"><svg viewBox="0 0 24 24">
+                <path
+                  d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z" />
+              </svg></div><span class="card-title">Real Time Stock</span><span class="card-arrow"><img src="img/arrow.svg"
+                alt=""></span>
+          </a>
+          <a href="#" class="dashboard-card">
+            <div class="card-icon"><svg viewBox="0 0 24 24">
+                <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14" />
+                <polyline points="22 4 12 14.01 9 11.01" />
+              </svg></div><span class="card-title">Daily Ops Performance</span><span class="card-arrow"><img
+                src="img/arrow.svg" alt=""></span>
+          </a>
+          <a href="#" class="dashboard-card">
+            <div class="card-icon"><svg viewBox="0 0 24 24">
+                <path d="M20.59 13.41l-7.17 7.17a2 2 0 0 1-2.83 0L2 12V2h10l8.59 8.59a2 2 0 0 1 0 2.82z" />
+                <line x1="7" y1="7" x2="7.01" y2="7" />
+              </svg></div><span class="card-title">Private Brand Daily Ops</span><span class="card-arrow"><img
+                src="img/arrow.svg" alt=""></span>
+          </a>
+          <a href="#" class="dashboard-card">
+            <div class="card-icon"><svg viewBox="0 0 24 24">
+                <path
+                  d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0zM12 9v4m0 4h.01" />
+              </svg></div><span class="card-title">War on Waste</span><span class="card-arrow"><img src="img/arrow.svg"
+                alt=""></span>
+          </a>
+          <a href="#" class="dashboard-card">
+            <div class="card-icon"><svg viewBox="0 0 24 24">
+                <path d="M6 2L3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4zM3 6h18M16 10a4 4 0 0 1-8 0" />
+              </svg></div><span class="card-title">ECommerce Analysis</span><span class="card-arrow"><img
+                src="img/arrow.svg" alt=""></span>
+          </a>
+          <a href="#" class="dashboard-card">
+            <div class="card-icon"><svg viewBox="0 0 24 24">
+                <path d="M20.59 13.41l-7.17 7.17a2 2 0 0 1-2.83 0L2 12V2h10l8.59 8.59a2 2 0 0 1 0 2.82z" />
+                <line x1="7" y1="7" x2="7.01" y2="7" />
+              </svg></div><span class="card-title">Promo Analysis</span><span class="card-arrow"><img src="img/arrow.svg"
+                alt=""></span>
+          </a>
+        </div>
+      </div>
+    </div>
+
+  </main>
+
+  <!-- Search Results Toast -->
+  <div id="resultsCount" class="search-results-count"></div>
+
+  <script src="script.js"></script>
+</body>
+
+</html>
